@@ -1,0 +1,41 @@
+body {
+	padding-left: 80px;
+	padding-right: 80px;
+	
+	font-family: sans-serif;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+div.itu {
+	background-image: url("itu.gif");
+	position: fixed;
+	top: 2em;
+	left: 0px;
+	display: block;
+	width: 37px;
+	height: 306px;
+}
+
+img.block {
+	padding-top: 1em;
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+
+pre.block {
+	display: block;
+}
+
+span.ui {
+	font-style: italic;
+}
+
+.full {
+	text-align: center;
+	border: 1px solid gray;
+	padding: 0.5em;
+}
