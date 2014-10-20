@@ -59,33 +59,35 @@
 		<p>
 			In order to use Coqoon's PIDE support, you will need a
 			development version of Coq, which you'll need to build
-			separately. The latest version of Coq trunk will most likely
-			work, but we have included a reference to version that we have tested.
-			You will need OCaml to install Coq.
-			
-			<ul>
-				<li>git clone https://github.com/coq/coq.git</li>
-				<li>enter coq directory</li>
-				<li>git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6</li>
-			</ul>
-			
-			Follow the installation instructions. If you wish to install this branch locally, run `./configure -local`
-			before running make. Just make sure that the bin-folder is in your path before you continue.
-			<p></p>
-			To install the Coq plugin for PIDE, do the following:
-			
-			<ul>
-				<li>git clone https://bitbucket.org/Carst/coq-pide.git</li>
-				<li>enter coq-pide repository</li>
-				<li>git fetch && git checkout PIDEtop</li>
-				<li>coq_makefile -f Make > Makefile</li>
-				<li>make</li>
-				<li>make install-toploop</li>
-			</ul>
-			
+			separately. To get a suitable version of Coq, run the
+			following commands:
+		<p class="shell">
+			git clone https://github.com/coq/coq.git<br>
+			cd coq<br>
+			git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6
+		<p>
+			The latest version of Coq is also likely to work, but
+			these commands will fetch an earlier version we have
+			tested.
+		<p>
+			Next, follow the usual installation instructions for
+			Coq. (You will need to have OCaml available to build
+			it.) If you wish to install this branch locally, run
+			<span class="shell">./configure -local</span>
+			before running make.
+		<p>
+			Finally, to install the Coq plugin for PIDE, run the
+			following commands (with the version of Coq you
+			compiled earlier in your path):
+		<p class="shell">
+			git clone -b PIDEtop https://bitbucket.org/Carst/coq-pide.git<br>
+			cd coq-pide<br>
+			coq_makefile -f Make > Makefile<br>
+			make<br>
+			make install-toploop</br>
+		<p>
 			See <a href="https://bitbucket.org/Carst/coq-pide/src/944d86af9318750330d568dcb74d0455ddae1be1/?at=PIDEtop">Carst
 			Tankink's build instructions</a> for more information.
-		<p>
 		<h3>
 			Java
 		</h3>
@@ -128,6 +130,35 @@
 				Agree to the Coqoon licence agreement, and
 				click <span class="ui">Next</span>.
 		</ol>
+		<h2>
+			Configuration
+		</h2>
+		<h3>
+			Finding the Coq program
+		</h3>
+		<p>
+			Coqoon will search some system folders for Coq, but if
+			it can't find it&mdash;or if it finds an older version
+			without PIDE support&mdash;you may need to manually
+			specify the path to the <span class="shell">coqtop</span>
+			program.
+		<p>
+			To specify the path, select the
+			<span class="ui">Window &rarr; Preferences</span> (or
+			<span class="ui">Eclipse &rarr; Preferences</span> on
+			Mac OS X) menu option, choose the <span class="ui">Coqoon</span>
+			category, and then click <span class="ui">Browse</span>
+			to choose the correct folder.
+		<img class="block" src="configuration.png" />
+		<h3>
+			Enabling the Coq perspective
+		</h3>
+		<p>
+			The default Eclipse user interface configuration does
+			not show any Coq-specific views. To enable these,
+			select the <span class="ui">Window &rarr; Open
+			Perspective &rarr; Other...</span> menu option, choose
+			<span class="ui">Coq</span>, and click <span class="ui">OK</span>.
 		<h2>
 			Development
 		</h2>

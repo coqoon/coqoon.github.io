@@ -39,3 +39,12 @@ span.ui {
 	border: 1px solid gray;
 	padding: 0.5em;
 }
+
+.shell {
+	background-color: #bbb;
+	font-family: monospace;
+}
+
+p.shell {
+	padding: 0.5em;
+}
