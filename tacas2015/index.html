@@ -59,13 +59,32 @@
 		<p>
 			In order to use Coqoon's PIDE support, you will need a
 			development version of Coq, which you'll need to build
-			separately. Once you have an appropriate version of
-			Coq, you'll need to build the PIDEtop plug-in for it.
+			separately. The latest version of Coq trunk will most likely
+			work, but we have included a reference to version that we have tested.
+			You will need OCaml to install Coq.
+			
+			<ul>
+				<li>git clone https://github.com/coq/coq.git</li>
+				<li>enter coq directory</li>
+				<li>git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6</li>
+			</ul>
+			
+			Follow the installation instructions. If you wish to install this branch locally, run `./configure -local`
+			before running make. Just make sure that the bin-folder is in your path before you continue.
+			
+			To install the Coq plugin for PIDE, do the following.
+			
+			<ul>
+				<li>git clone https://bitbucket.org/Carst/coq-pide.git</li>
+				<li>enter coq-pide repository</li>
+				<li>git fetch && git checkout PIDEtop</li>
+				<li>coq_makefile -f Make > Makefile</li>
+				<li>Make</li>
+				<li>Make install-toploop</li>
+			</ul>
+			
 			See <a href="https://bitbucket.org/Carst/coq-pide/src/944d86af9318750330d568dcb74d0455ddae1be1/?at=PIDEtop">Carst
 			Tankink's build instructions</a> for more information.
-		<p>
-			(It is not necessary to build PIDE itself; Coqoon
-			includes a supported snapshot of the PIDE client.)
 		<p>
 		<h3>
 			Java
