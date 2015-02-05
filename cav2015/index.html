@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Coqoon</title>
+		<link rel="stylesheet" href="../coqoon.css">
+	</head>
+	<body>
+<!--		<a href="http://www.itu.dk"><div class="itu"></div></a> -->
+		<h1>
+			Coqoon
+		</h1>
+		<p>
+			Coqoon is an Eclipse plugin providing a
+			feature-complete development environment for Coq proof
+			scripts.
+		<p>
+			Coqoon is developed alongside
+			<a href="http://www.itu.dk/research/tomeso/kopitiam/">Kopitiam</a>,
+			an Eclipse plugin for certifying full functional
+			correctness of Java programs.
+		<img class="block" src="../screen.png" />
+		<h2 id="features">
+			Features
+		</h2>
+		<ul>
+			<li>
+				Eclipse integration
+				<p>
+					Coqoon works well with other Eclipse
+					plugins &mdash; add more to add new
+					features like version control.
+			<li>
+				Automatic project builder
+				<p>
+					Automatically rebuild dependencies when
+					proof scripts change, and forget about
+					manual load path configuration.
+			<li>
+				Java-style project organisation
+				<p>
+					Structure Coq developments like Java
+					projects, manage project
+					interdependencies with a user
+					interface, and avoid cluttering source
+					folders with <code>.vo</code> files.
+			<li>
+				Compatibility with other tools
+				<p>
+					Coqoon projects can be built outside of
+					Coqoon by using automatically-generated
+					Makefiles.
+		</ul>
+		<h2 id="requirements">
+			Requirements
+		</h2>
+		<h3 id="requirements-coq">
+			Coq
+		</h3>
+		<p>
+			In order to use Coqoon's PIDE support, you will need a
+			development version of Coq, which you'll need to build
+			separately. To get a suitable version of Coq, run the
+			following commands:
+		<p class="shell">
+			git clone https://github.com/coq/coq.git<br>
+			cd coq<br>
+			git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6
+		<p>
+			The latest version of Coq is also likely to work, but
+			these commands will fetch an earlier version we have
+			tested.
+		<p>
+			Next, follow the usual installation instructions for
+			Coq. (You will need to have OCaml available to build
+			it.) If you wish to install this branch locally, run
+			<span class="shell">./configure -local</span>
+			before running make.
+		<p>
+			Finally, to install the Coq plugin for PIDE, run the
+			following commands (with the version of Coq you
+			compiled earlier in your path):
+		<p class="shell">
+			git clone https://bitbucket.org/Carst/pidetop.git<br>
+			cd pidetop<br>
+			coq_makefile -f Make > Makefile<br>
+			make<br>
+			make install-toploop</br>
+		<p>
+			See <a href="https://bitbucket.org/Carst/pidetop">Carst
+			Tankink's build instructions</a> for more information.
+		<h4 id="requirements-coq-windows">
+			Windows
+		</h4>
+		<p>
+			Windows users can alternately download a prebuilt
+			version of Coq, and the PIDEtop plugin, from
+			<a href="https://bitbucket.org/Carst/pidetop/downloads/">the
+			PIDEtop downloads page</a>. This build was most
+			recently updated on November 14, 2014.
+		<p>
+			Once you've installed Coq using this installer, simply
+			move the <code>pidetop.cmxs</code> file
+			into the installation's <code>lib\toploop</code>
+			folder. (For example, if you've installed PIDEtop to the
+			<code>C:\Users\Me\Coq</code> folder,
+			you should place <code>pidetop.cmxs</code>
+			in the <code>C:\Users\Me\Coq\lib\toploop</code>
+			folder.)
+		<h3 id="requirements-java">
+			Java
+		</h3>
+		<p>
+			Coqoon should work with any recent version of the Java
+			virtual machine. See <a href="https://www.java.com/en/download/index.jsp">Oracle's
+			Java downloads page</a>.
+		<h3 id="requirements-eclipse">
+			Eclipse
+		</h3>
+		<p>
+			Coqoon requires version 4.2 (Juno) or later of Eclipse,
+			available from <a href="http://www.eclipse.org/downloads/">the
+			Eclipse downloads page</a>.
+		<h3 id="requirements-os">
+			Operating systems
+		</h3>
+		<p>
+			Coqoon is tested regularly on Windows, Mac OS X and
+			Linux.
+		<h2 id="installation">
+			Installation
+		</h2>
+		<ol>
+			<li>
+				Start Eclipse.
+			<li>
+				Select the <span class="ui">Help &rarr;
+				Install New Software...</span> menu option.
+			<li>
+				Paste the line
+				<pre class="block">Coqoon (PIDE) - https://www.itu.dk/research/tomeso/coqoon/e42-pide</pre>
+				into the <span class="ui">Work with:</span>
+				text box, and press Enter.
+			<li>
+				Select the <span class="ui">Coqoon (PIDE) &rarr;
+				Coqoon</span> feature, and click
+				<span class="ui">Next</span>.
+			<li>
+				Agree to the Coqoon licence agreement, and
+				click <span class="ui">Next</span>.
+		</ol>
+		<h2 id="updating">
+			Updating
+		</h2>
+		<p>
+			New versions of Coqoon are released frequently to add
+			new features, fix bugs, and improve performance. To
+			update Coqoon to the most recent version, select the
+			<span class="ui">Help &rarr; Check for Updates</span>
+			menu option.
+		<p>
+			The most recent version of Coqoon is v0.4.6.6, released
+			on November 11th, 2014; for more information, see
+			<a href="https://github.com/hannesm/Kopitiam/blob/master/CHANGES.md">the Coqoon changelog</a>.
+		<h2 id="configuration">
+			Configuration
+		</h2>
+		<h3 id="configuration-finding">
+			Finding the Coq program
+		</h3>
+		<p>
+			Coqoon will search some system folders for Coq, but if
+			it can't find it&mdash;or if it finds an older version
+			without PIDE support&mdash;you may need to manually
+			specify the path to the <span class="shell">coqtop</span>
+			program.
+		<p>
+			To specify the path, select the
+			<span class="ui">Window &rarr; Preferences</span> (or
+			<span class="ui">Eclipse &rarr; Preferences</span> on
+			Mac OS X) menu option, choose the <span class="ui">Coqoon</span>
+			category, and then click <span class="ui">Browse</span>
+			to choose the correct folder.
+		<img class="block" src="configuration.png" />
+		<h3 id="configuration-perspective">
+			Enabling the Coq perspective
+		</h3>
+		<p>
+			The default Eclipse user interface configuration does
+			not show any Coq-specific views. To enable these,
+			select the <span class="ui">Window &rarr; Open
+			Perspective &rarr; Other...</span> menu option, choose
+			<span class="ui">Coq</span>, and click <span class="ui">OK</span>.
+		<h3 id="configuration-annotations">
+			Toggling PIDE annotations
+		</h3>
+		<p>
+			The Coq editor can optionally display commands that are
+			awaiting execution using a different background colour,
+			providing the user with more immediate feedback.
+		<p>
+			To enable or disable this option, select the
+			<span class="ui">Window &rarr; Preferences</span> (or
+			<span class="ui">Eclipse &rarr; Preferences</span> on
+			Mac OS X) menu option, choose the <span class="ui">Coqoon
+			&rarr; Interface</span>
+			category, and then click the <span class="ui">Enable
+			PIDE processing annotations (experimental)</span> checkbox.
+		<h2 id="software-foundations">
+			Software Foundations	
+		</h2>
+		<p>
+			We have modified a version of Benjamin Pierce's <i>Software Foundations</i> course to be compatible with the
+			development version of Coq that Coqoon currently supports. The easiest way to obtain this project is
+			to import it:
+		<ol>
+			<li>
+				Right-click in the Project Explorer and choose <span class="ui">Import</span>.
+			<li>
+				Choose the <span class="ui">Git &rarr; Project from Git</span> option.
+			<li>
+				Choose the <span class="ui">Clone URI</span> option.
+			<li>
+				Paste <span class="shell">https://github.com/coqoon/Software-Foundations.git</span>
+				into the URI text box, and press <span class="ui">Finish</span>.
+		</ol>
+		<p>
+			This process will create a local copy of the Software
+			Foundations repository on your computer; to import the
+			project again, you should use this local copy directly
+			by choosing the <span class="ui">Existing local
+			repository</span> option instead of <span class="ui">Clone
+			URI</span>.
+		<p>
+			To fetch updates from the Software Foundations repository
+			and incorporate them into your local copy,
+			open the <span class="ui">Git Repositories</span> view
+			(<span class="ui">Window &rarr; Show View &rarr; Other...
+			&rarr; Git &rarr; Git Repositories</span>), right-click
+			the <span class="ui">Software-Foundations</span> entry,
+			and click <span class="ui">Pull</span>.
+		<h2 id="development">
+			Development
+		</h2>
+		<h3 id="development-source">
+			Source repository
+		</h3>
+		<p>
+			<a href="https://github.com/hannesm/Kopitiam">Coqoon's
+			source code</a> is hosted on <a href="https://github.com/">GitHub</a>, and
+			can be checked out anonymously using the command
+			<pre class="block">git clone git://github.com/hannesm/Kopitiam.git</pre>
+		<h3 id="development-issues">
+			Issue tracker
+		</h3>
+		<p>
+			Report bugs, issues and problems using <a href="https://github.com/hannesm/Kopitiam/issues">the
+			Coqoon issue tracker</a> (which is shared with the
+			<a href="/research/tomeso/kopitiam">Kopitiam</a>
+			project).
+		<h2 id="contact">
+			Contact
+		</h2>
+		<p>
+			Coqoon is managed by <a href="https://www.itu.dk/people/jebe/">Jesper
+			Bengtson</a> and developed by <a href="https://www.itu.dk/people/alef/">Alexander
+			Faithfull</a> (who also maintains this webpage), based
+			on work by <a href="https://www.itu.dk/people/hame/">Hannes Mehnert</a>.
+	</body>
+</html>
