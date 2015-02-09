@@ -46,9 +46,9 @@
 			<li>
 				Compatibility with other tools
 				<p>
-					Coqoon projects can be built outside of
-					Coqoon by using automatically-generated
-					Makefiles.
+					All Coqoon projects come with a <code>configure</code>
+					script, so they can be built and modified without needing
+					to use Coqoon itself.
 		</ul>
 		<h2 id="requirements">
 			Requirements
@@ -57,55 +57,13 @@
 			Coq
 		</h3>
 		<p>
-			In order to use Coqoon's PIDE support, you will need a
-			development version of Coq, which you'll need to build
-			separately. To get a suitable version of Coq, run the
-			following commands:
-		<p class="shell">
-			git clone https://github.com/coq/coq.git<br>
-			cd coq<br>
-			git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6
-		<p>
-			The latest version of Coq is also likely to work, but
-			these commands will fetch an earlier version we have
-			tested.
-		<p>
-			Next, follow the usual installation instructions for
-			Coq. (You will need to have OCaml available to build
-			it.) If you wish to install this branch locally, run
-			<span class="shell">./configure -local</span>
-			before running make.
-		<p>
-			Finally, to install the Coq plugin for PIDE, run the
-			following commands (with the version of Coq you
-			compiled earlier in your path):
-		<p class="shell">
-			git clone https://bitbucket.org/Carst/pidetop.git<br>
-			cd pidetop<br>
-			coq_makefile -f Make > Makefile<br>
-			make<br>
-			make install-toploop</br>
-		<p>
-			See <a href="https://bitbucket.org/Carst/pidetop">Carst
-			Tankink's build instructions</a> for more information.
-		<h4 id="requirements-coq-windows">
-			Windows
-		</h4>
-		<p>
-			Windows users can alternately download a prebuilt
-			version of Coq, and the PIDEtop plugin, from
-			<a href="https://bitbucket.org/Carst/pidetop/downloads/">the
-			PIDEtop downloads page</a>. This build was most
-			recently updated on November 14, 2014.
-		<p>
-			Once you've installed Coq using this installer, simply
-			move the <code>pidetop.cmxs</code> file
-			into the installation's <code>lib\toploop</code>
-			folder. (For example, if you've installed PIDEtop to the
-			<code>C:\Users\Me\Coq</code> folder,
-			you should place <code>pidetop.cmxs</code>
-			in the <code>C:\Users\Me\Coq\lib\toploop</code>
-			folder.)
+			In order to use Coqoon's PIDE support, you'll need Coq 8.5,
+			the first beta release of which is currently available from
+			<a href="https://coq.inria.fr/coq-85">the Coq downloads page</a>.
+			Once you've installed that, follow
+			<a href="https://bitbucket.org/coqpide/pidetop">the
+			installation instructions for PIDEtop</a> to add support for PIDE
+			to Coq.
 		<h3 id="requirements-java">
 			Java
 		</h3>
