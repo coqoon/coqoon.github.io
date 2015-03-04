@@ -61,13 +61,25 @@
 			proof backend used by PIDE. We recommend that Coqoon users
 			stay up-to-date with new releases of Coq 8.5.
 		<p>
-			Once you've installed Coq 8.5, follow
-			<a href="https://bitbucket.org/coqpide/pidetop">the
-			installation instructions for PIDEtop</a> to add support for PIDE.
+		<h3 id="requirements-pidetop">
+			PIDEtop
+		</h3>
+		<p>
+			Once you've installed Coq 8.5, download and install version
+			<code>Coq-0.2.0</code>
+			of PIDEtop. A <a href="https://bitbucket.org/coqpide/pidetop/downloads/pidetop-windows-0.2.0.zip">prebuilt
+			binary</a> is available for Windows users; users of Mac OS X or
+			Linux should compile it from <a href="https://bitbucket.org/coqpide/pidetop/get/Coq-0.2.0.tar.gz">the
+			source code</a>. (When building PIDEtop, note that the trailing
+			slash in the <code>COQBIN</code> variable <em>is required</em>.)
+		<p>
+			See <a href="https://bitbucket.org/coqpide/pidetop">the PIDEtop
+			installation instructions</a> for more details.
 		<p class="warning">
-			Use the <code>Coq-0.2.0</code> release of PIDEtop; later versions
-			are known to make inadvertent changes to the protocol that
-			interfere with Coqoon.
+			Make sure you're using the <code>Coq-0.2.0</code> release of
+			PIDEtop; later versions are known to contain bugs that interfere
+			with Coqoon.
+		<p>
 		<h3 id="requirements-java">
 			Java
 		</h3>
