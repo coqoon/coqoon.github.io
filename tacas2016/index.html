@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="../coqoon.css">
 	</head>
 	<body>
-<!--		<a href="http://www.itu.dk"><div class="itu"></div></a> -->
+		<a href="http://www.itu.dk"><div class="itu"></div></a>
 		<h1>
 			Coqoon
 		</h1>
@@ -13,13 +13,8 @@
 			Coqoon is an Eclipse plugin providing a
 			feature-complete development environment for Coq proof
 			scripts.
-		<p>
-			Coqoon is developed alongside
-			<a href="http://www.itu.dk/research/tomeso/kopitiam/">Kopitiam</a>,
-			an Eclipse plugin for certifying full functional
-			correctness of Java programs.
 		<img class="block" src="../screen.png" />
-		<h2 id="features">
+<!--		<h2 id="features">
 			Features
 		</h2>
 		<ul>
@@ -46,9 +41,9 @@
 			<li>
 				Compatibility with other tools
 				<p>
-					Coqoon projects can be built outside of
-					Coqoon by using automatically-generated
-					Makefiles.
+					All Coqoon projects come with a <code>configure</code>
+					script, so they can be built and modified without needing
+					to use Coqoon itself.
 		</ul>
 		<h2 id="requirements">
 			Requirements
@@ -57,55 +52,34 @@
 			Coq
 		</h3>
 		<p>
-			In order to use Coqoon's PIDE support, you will need a
-			development version of Coq, which you'll need to build
-			separately. To get a suitable version of Coq, run the
-			following commands:
-		<p class="shell">
-			git clone https://github.com/coq/coq.git<br>
-			cd coq<br>
-			git checkout 6e0c5c81e9e81c2e5369427643b2ac51b9aa17e6
+			In order to use Coqoon's PIDE support, you'll need Coq 8.5,
+			the first beta release of which is currently available from
+			<a href="https://coq.inria.fr/coq-85">the Coq downloads page</a>.
+		<p class="warning">
+			Note that Coq 8.5 is <strong>still in beta</strong> at the time
+			of writing, and that bugs are known to exist in the asynchronous
+			proof backend used by PIDE. We recommend that Coqoon users
+			stay up-to-date with new releases of Coq 8.5.
 		<p>
-			The latest version of Coq is also likely to work, but
-			these commands will fetch an earlier version we have
-			tested.
+		<h3 id="requirements-pidetop">
+			PIDEtop
+		</h3>
 		<p>
-			Next, follow the usual installation instructions for
-			Coq. (You will need to have OCaml available to build
-			it.) If you wish to install this branch locally, run
-			<span class="shell">./configure -local</span>
-			before running make.
+			Once you've installed Coq 8.5, download and install version
+			<code>Coq-0.2.0</code>
+			of PIDEtop. A <a href="https://bitbucket.org/coqpide/pidetop/downloads/pidetop-windows-0.2.0.zip">prebuilt
+			binary</a> is available for Windows users; users of Mac OS X or
+			Linux should compile it from <a href="https://bitbucket.org/coqpide/pidetop/get/Coq-0.2.0.tar.gz">the
+			source code</a>. (When building PIDEtop, note that the trailing
+			slash in the <code>COQBIN</code> variable <em>is required</em>.)
 		<p>
-			Finally, to install the Coq plugin for PIDE, run the
-			following commands (with the version of Coq you
-			compiled earlier in your path):
-		<p class="shell">
-			git clone https://bitbucket.org/Carst/pidetop.git<br>
-			cd pidetop<br>
-			coq_makefile -f Make > Makefile<br>
-			make<br>
-			make install-toploop</br>
+			See <a href="https://bitbucket.org/coqpide/pidetop">the PIDEtop
+			installation instructions</a> for more details.
+		<p class="warning">
+			Make sure you're using the <code>Coq-0.2.0</code> release of
+			PIDEtop; later versions are known to contain bugs that interfere
+			with Coqoon.
 		<p>
-			See <a href="https://bitbucket.org/Carst/pidetop">Carst
-			Tankink's build instructions</a> for more information.
-		<h4 id="requirements-coq-windows">
-			Windows
-		</h4>
-		<p>
-			Windows users can alternately download a prebuilt
-			version of Coq, and the PIDEtop plugin, from
-			<a href="https://bitbucket.org/Carst/pidetop/downloads/">the
-			PIDEtop downloads page</a>. This build was most
-			recently updated on November 14, 2014.
-		<p>
-			Once you've installed Coq using this installer, simply
-			move the <code>pidetop.cmxs</code> file
-			into the installation's <code>lib\toploop</code>
-			folder. (For example, if you've installed PIDEtop to the
-			<code>C:\Users\Me\Coq</code> folder,
-			you should place <code>pidetop.cmxs</code>
-			in the <code>C:\Users\Me\Coq\lib\toploop</code>
-			folder.)
 		<h3 id="requirements-java">
 			Java
 		</h3>
@@ -118,8 +92,13 @@
 		</h3>
 		<p>
 			Coqoon requires version 4.2 (Juno) or later of Eclipse,
-			available from <a href="http://www.eclipse.org/downloads/">the
+			available from <a href="http://www.eclipse.org/downloads/packages/">the
 			Eclipse downloads page</a>.
+		<p>
+			As the examples are hosted in a Git repository, we recommend a
+			package that includes Git support out of the box, such as
+			<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/lunasr1a">the
+			Eclipse IDE for Java Developers</a>.
 		<h3 id="requirements-os">
 			Operating systems
 		</h3>
@@ -137,11 +116,11 @@
 				Install New Software...</span> menu option.
 			<li>
 				Paste the line
-				<pre class="block">Coqoon (PIDE) - https://www.itu.dk/research/tomeso/coqoon/e42-pide</pre>
+				<pre class="block">Coqoon - https://www.itu.dk/research/tomeso/coqoon/e42-pide</pre>
 				into the <span class="ui">Work with:</span>
 				text box, and press Enter.
 			<li>
-				Select the <span class="ui">Coqoon (PIDE) &rarr;
+				Select the <span class="ui">Coqoon &rarr;
 				Coqoon</span> feature, and click
 				<span class="ui">Next</span>.
 			<li>
@@ -158,8 +137,8 @@
 			<span class="ui">Help &rarr; Check for Updates</span>
 			menu option.
 		<p>
-			The most recent version of Coqoon is v0.4.6.6, released
-			on November 11th, 2014; for more information, see
+			The most recent version of Coqoon is v0.5.7, released
+			on March 2nd, 2015; for more information, see
 			<a href="https://github.com/hannesm/Kopitiam/blob/master/CHANGES.md">the Coqoon changelog</a>.
 		<h2 id="configuration">
 			Configuration
@@ -264,6 +243,6 @@
 			Coqoon is managed by <a href="https://www.itu.dk/people/jebe/">Jesper
 			Bengtson</a> and developed by <a href="https://www.itu.dk/people/alef/">Alexander
 			Faithfull</a> (who also maintains this webpage), based
-			on work by <a href="https://www.itu.dk/people/hame/">Hannes Mehnert</a>.
+			on work by <a href="https://www.itu.dk/people/hame/">Hannes Mehnert</a>. -->
 	</body>
 </html>
