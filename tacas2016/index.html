@@ -143,7 +143,7 @@
     <p>
       The Coqoon repository contains a compiled copy of OcaIDE; in order to
       comply with its licence, we also make a copy of
-      <a href="https://www.itu.dk/research/tomeso/coqoon/OcaIDE-master.zip">its source code</a>
+      <a href="https://www.itu.dk/research/tomeso/coqoon/OcaIDE_20151021.zip">its source code</a>
       available.
     <h2 id="updating">
       Updating
@@ -198,9 +198,53 @@
     <h2 id="sample-projects">
       Sample projects
     </h2>
-<!--    <h3>
-      The Odd-Order Theorem
-    </h3> -->
+    <h3>
+      The Odd Order Theorem
+    </h3>
+    <p>
+      To show that Coqoon can be used to work with even the most complex Coq
+      projects, we
+      provide <a href="https://www.itu.dk/research/tomeso/coqoon/odd-order_20151022.zip">a pre-packaged version</a>
+      of <a href="http://www.msr-inria.fr/news/the-formalization-of-the-odd-order-theorem-has-been-completed-the-20-septembre-2012/">the
+      Microsoft Research / INRIA formalisation of the odd order theorem</a>.
+    <p>
+      We recommend that this project be compiled using the quick compilation
+      chain. To enable it, select the <span class="ui">Window &rarr;
+      Preferences</span> (or
+      <span class="ui">Eclipse &rarr; Preferences</span> on
+      Mac OS X) menu option, choose the <span class="ui">Coqoon</span>
+      category, and then tick the box labelled
+      <span class="ui">Enable the quick compilation
+      process (experimental, Coq 8.5+)</span>.
+    <p class="warning">
+      This project contains an embedded OCaml plugin, so the
+      <span class="ui">OcaIDE integration for Coqoon</span> feature and its dependencies must be
+      installed to build it correctly.
+    <p>
+      To import this project into Coqoon, follow these steps:
+    <ol>
+      <li>
+        Select the <span class="ui">File &rarr; Import...</span> menu option.
+      <li>
+        Choose the <span class="ui">General &rarr; Existing Projects into
+        Workspace</span> option.
+      <li>
+        Click the <span class="ui">Select archive file:</span> radio button,
+        then click the <span class="ui">Browse...</span> button.
+      <li>
+        Select the ZIP archive containing the project.
+      <li>
+        Click <span class="ui">Finish</span>.
+    </ol>
+    <h4>
+      Compliance
+    </h4>
+    <p>
+      The packaged version omits several non-Coq files from the Mathematical
+      Components library; in order to comply with its licence, we also make a
+      copy of
+      <a href="https://www.itu.dk/research/tomeso/coqoon/math-comp_20151022.zip">the full source code</a>
+      available.
     <h3>
       Software Foundations
     </h3>
