@@ -1,9 +1,313 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Coqoon</title>
-		<meta http-equiv="refresh" content="0; url=https://coqoon.github.io/tacas2016/">
-	</head>
-	<body>
-	</body>
+  <head>
+    <title>Coqoon</title>
+    <link rel="stylesheet" href="coqoon.css">
+  </head>
+  <body>
+    <a href="http://www.itu.dk"><div class="itu"></div></a>
+    <h1>
+      Coqoon
+    </h1>
+    <p>
+      Coqoon is an Eclipse plugin providing a
+      feature-complete development environment for Coq
+      projects.
+    <img class="block" src="screen.png" />
+    <h2 id="features">
+      Features
+    </h2>
+    <ul>
+      <li>
+        Eclipse integration
+        <p>
+          Coqoon works well with other Eclipse
+          plugins &mdash; add more to add new
+          features like version control or support
+          for embedded OCaml plugins.
+      <li>
+        Automatic project builder
+        <p>
+          Automatically rebuild dependencies when
+          proof scripts change, and forget about
+          manual load path configuration.
+      <li>
+        Java-style project organisation
+        <p>
+          Structure Coq developments like Java
+          projects, manage project
+          interdependencies with a user
+          interface, and avoid cluttering source
+          folders with <code>.vo</code> files.
+      <li>
+        Compatibility with other tools
+        <p>
+          All Coqoon projects come with a <code>configure</code>
+          script, so they can be built and developed even without
+          using Coqoon.
+      <li>
+        The latest Coq features
+        <p>
+          Coqoon takes advantage of all the latest changes
+          to Coq: edit proofs asynchronously and get automatic
+          feedback, or use the quick compilation chain to compile
+          a colossal project in just a few minutes.
+    </ul>
+    <h2 id="requirements" class="clear">
+      Requirements
+    </h2>
+    <h3 id="requirements-coq">
+      Coq
+    </h3>
+    <p>
+      In order to use Coqoon's PIDE support, you'll need to use
+      <a href="https://coq.inria.fr/download">Coq 8.5</a>.
+    <h3 id="requirements-pidetop">
+      PIDEtop
+    </h3>
+    <p>
+      Once you've installed Coq 8.5, download and install the latest version
+      of the PIDEtop plugin. A prebuilt binary will soon be available
+      for Windows users; for other platforms, it should be built from <a href="https://bitbucket.org/coqpide/pidetop/get/PIDEtop.tar.gz">the
+      latest version of the source code</a>. (When building PIDEtop, note that the trailing
+      slash in the <code>COQBIN</code> variable <em>is required</em>.)
+    <p class="information">
+      Note that PIDEtop can also be installed using the OPAM integration
+      feature; see the PIDEtop installation instructions for more details.
+    <p>
+      See <a href="https://bitbucket.org/coqpide/pidetop">the PIDEtop
+      installation instructions</a> for more details.
+    <p>
+      The PIDEtop plugin was last updated on <strong>February 16th,
+      2016</strong>; we recommend that all users update to the latest version.
+    <h3 id="requirements-java">
+      Java
+    </h3>
+    <p>
+      Coqoon should work with any recent version of the Java
+      virtual machine. See <a href="https://www.java.com/en/download/index.jsp">Oracle's
+      Java downloads page</a>.
+    <h3 id="requirements-eclipse">
+      Eclipse
+    </h3>
+    <p>
+      Coqoon requires version 4.2 (Juno) or later of Eclipse,
+      available from <a href="http://www.eclipse.org/downloads/packages/">the
+      Eclipse downloads page</a>.
+    <p>
+      As the examples are hosted in a Git repository, we recommend a
+      package that includes Git support out of the box, such as
+      <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/lunasr1a">the
+      Eclipse IDE for Java Developers</a>.
+    <h3 id="requirements-os">
+      Operating systems
+    </h3>
+    <p>
+      Coqoon is tested regularly on Windows, Mac OS X and
+      Linux.
+    <h2 id="installation">
+      Installation
+    </h2>
+    <ol>
+      <li>
+        Start Eclipse.
+      <li>
+        Select the <span class="ui">Help &rarr;
+        Install New Software...</span> menu option.
+      <li>
+        Paste the line
+        <pre class="block">Coqoon - https://www.itu.dk/research/tomeso/coqoon/e42</pre>
+        into the <span class="ui">Work with:</span>
+        text box, and press Enter.
+      <li>
+        Select the <span class="ui">Coqoon &rarr;
+        Coqoon</span> feature, and click
+        <span class="ui">Next</span>.
+      <ul>
+        <li>
+          To enable OCaml integration, choose the <span class="ui">Coqoon
+          &rarr; OcaIDE integration for Coqoon</span> feature. (You should
+          also have OCaml installed on your computer; see <a href="http://ocaml.org/docs/install.html">the
+          OCaml installation instructions</a> for more details.)
+        <li>
+          To enable OPAM integration, choose the <span class="ui">Coqoon
+          &rarr; OPAM integration for Coqoon</span> feature. (You should
+          also have OPAM installed on your computer; see <a href="https://opam.ocaml.org/doc/Install.html">the
+          OPAM installation instructions</a> for more details.)
+      </ul>
+      <li>
+        Agree to the Coqoon licence agreement, and
+        click <span class="ui">Next</span>.
+    </ol>
+    <h3>
+      Compliance
+    </h3>
+    <p>
+      The Coqoon repository contains a compiled copy of OcaIDE; in order to
+      comply with its licence, we also make a copy of
+      <a href="https://www.itu.dk/research/tomeso/coqoon/OcaIDE_20151021.zip">its source code</a>
+      available.
+    <h2 id="updating">
+      Updating
+    </h2>
+    <p>
+      New versions of Coqoon are released frequently to add
+      new features, fix bugs, and improve performance. To
+      update Coqoon to the most recent version, select the
+      <span class="ui">Help &rarr; Check for Updates</span>
+      menu option.
+    <p>
+      The most recent version of Coqoon is <strong>v0.8.0</strong>, released on
+      <strong>November 4th, 2016</strong>; for more information, see
+      <a href="https://github.com/hannesm/Kopitiam/blob/master/CHANGES.md">the
+      Coqoon changelog</a>.
+    <h2 id="configuration">
+      Configuration
+    </h2>
+    <h3 id="configuration-finding">
+      Finding the Coq program
+    </h3>
+    <p>
+      Coqoon will search some system folders for Coq, but if
+      it can't find it&mdash;or if it finds the wrong
+      version&mdash;you may need to manually
+      specify the the folder that contains the
+      <span class="shell">coqtop</span> program.
+    <p class="information">
+      If you're using the OPAM integration feature, then the version of Coq
+      installed in the active OPAM root will automatically be used.
+    <p>
+      To specify the path, select the
+      <span class="ui">Window &rarr; Preferences</span> (or
+      <span class="ui">Eclipse &rarr; Preferences</span> on
+      Mac OS X) menu option, choose the <span class="ui">Coqoon</span>
+      category, and then click <span class="ui">Browse</span>
+      to choose the correct folder.
+    <img class="block" src="configuration.png" />
+    <p class="warning">
+      If you're using Coqoon with OCaml integration, note that OcaIDE ignores
+      this setting, and will only
+      look for Coq in your configured path, or in the folder specified by the
+      <span class="shell">COQBIN</span> environment variable. (We expect to
+      fix this issue
+      soon.)
+    <h3 id="configuration-perspective">
+      Enabling the Coq perspective
+    </h3>
+    <p>
+      The default Eclipse user interface configuration does
+      not show any Coq-specific views. To enable these,
+      select the <span class="ui">Window &rarr; Open
+      Perspective &rarr; Other...</span> menu option, choose
+      <span class="ui">Coq</span>, and click <span class="ui">OK</span>.
+    <h2 id="sample-projects">
+      Sample projects
+    </h2>
+    <h3>
+      The Odd Order Theorem
+    </h3>
+    <p>
+      To show that Coqoon can be used to work with even the most complex Coq
+      projects, we
+      provide <a href="https://www.itu.dk/research/tomeso/coqoon/odd-order_20151022.zip">a pre-packaged version</a>
+      of <a href="http://www.msr-inria.fr/news/the-formalization-of-the-odd-order-theorem-has-been-completed-the-20-septembre-2012/">the
+      Microsoft Research / INRIA formalisation of the odd order theorem</a>.
+    <p>
+      We recommend that this project be compiled using the quick compilation
+      chain. To enable it, select the <span class="ui">Window &rarr;
+      Preferences</span> (or
+      <span class="ui">Eclipse &rarr; Preferences</span> on
+      Mac OS X) menu option, choose the <span class="ui">Coqoon</span>
+      category, and then tick the box labelled
+      <span class="ui">Enable the quick compilation
+      process (experimental, Coq 8.5+)</span>.
+    <p class="warning">
+      This project contains an embedded OCaml plugin, so the
+      <span class="ui">OcaIDE integration for Coqoon</span> feature and its dependencies must be
+      installed to build it correctly.
+    <p>
+      To import this project into Coqoon, follow these steps:
+    <ol>
+      <li>
+        Select the <span class="ui">File &rarr; Import...</span> menu option.
+      <li>
+        Choose the <span class="ui">General &rarr; Existing Projects into
+        Workspace</span> option.
+      <li>
+        Click the <span class="ui">Select archive file:</span> radio button,
+        then click the <span class="ui">Browse...</span> button.
+      <li>
+        Select the ZIP archive containing the project.
+      <li>
+        Click <span class="ui">Finish</span>.
+    </ol>
+    <h4>
+      Compliance
+    </h4>
+    <p>
+      The packaged version omits several non-Coq files from the Mathematical
+      Components library; in order to comply with its licence, we also make a
+      copy of
+      <a href="https://www.itu.dk/research/tomeso/coqoon/math-comp_20151022.zip">the full source code</a>
+      available.
+    <h3>
+      Software Foundations
+    </h3>
+    <p>
+      We also provide a version of <a href="https://www.cis.upenn.edu/~bcpierce/sf/current/index.html">Benjamin Pierce's <em>Software
+      Foundations</em> course</a>, modified to be compatible with the Coq 8.5
+      series. The easiest way to import it is to use Eclipse's integrated Git
+      support:
+    <ol>
+      <li>
+        Right-click in the Project Explorer and choose <span class="ui">Import</span>.
+      <li>
+        Choose the <span class="ui">Git &rarr; Project from Git</span> option.
+      <li>
+        Choose the <span class="ui">Clone URI</span> option.
+      <li>
+        Paste <span class="shell">https://github.com/coqoon/Software-Foundations.git</span>
+        into the URI text box, and press <span class="ui">Finish</span>.
+    </ol>
+    <p>
+      This process will create a local copy of the Software
+      Foundations repository on your computer; to import the
+      project again, you should use this local copy directly
+      by choosing the <span class="ui">Existing local
+      repository</span> option instead of <span class="ui">Clone
+      URI</span>.
+    <p>
+      To fetch updates from the Software Foundations repository
+      and incorporate them into your local copy,
+      open the <span class="ui">Git Repositories</span> view
+      (<span class="ui">Window &rarr; Show View &rarr; Other...
+      &rarr; Git &rarr; Git Repositories</span>), right-click
+      the <span class="ui">Software-Foundations</span> entry,
+      and click <span class="ui">Pull</span>.
+    <h2 id="development">
+      Development
+    </h2>
+    <h3 id="development-source">
+      Source repository
+    </h3>
+    <p>
+      <a href="https://github.com/hannesm/Kopitiam">Coqoon's
+      source code</a> is hosted on <a href="https://github.com/">GitHub</a>, and
+      can be checked out anonymously using the command
+      <pre class="block">git clone git://github.com/hannesm/Kopitiam.git</pre>
+    <h3 id="development-issues">
+      Issue tracker
+    </h3>
+    <p>
+      Report bugs, issues and problems using <a href="https://github.com/hannesm/Kopitiam/issues">the
+      Coqoon issue tracker</a>.
+    <h2 id="contact">
+      Contact
+    </h2>
+    <p>
+      Coqoon is managed by <a href="https://www.itu.dk/people/jebe/">Jesper
+      Bengtson</a> and developed by <a href="https://www.itu.dk/people/alef/">Alexander
+      Faithfull</a> (who also maintains this webpage), based
+      on work by <a href="https://www.itu.dk/people/hame/">Hannes Mehnert</a>.
+  </body>
 </html>
