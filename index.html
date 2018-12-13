@@ -59,17 +59,26 @@
     <h3 id="requirements-coq">
       Coq
     </h3>
+    <h4>
+      Coq 8.7 and later
+    </h4>
     <p>
-      In order to use Coqoon's PIDE support, you'll need to use
-      <a href="https://coq.inria.fr/download">Coq 8.5</a> or higher.
-    <h3 id="requirements-pidetop">
-      PIDEtop
-    </h3>
+      Coqoon uses the <code>coqidetop</code> protocol supported by recent
+      versions of Coq to provide an editor with interactive responses.
     <p>
-      Once you've installed Coq 8.5, download and install the latest version
-      of the PIDEtop plugin. For Windows users, a <a href="https://bitbucket.org/coqpide/pidetop/downloads/pidetop-f23e3331-8.5pl2-win32.zip">binary
+      This editor is not yet the default; to use it, right-click on
+      a <code>.v</code> file and choose the
+      <span class="ui">Open With &rarr;
+        Coq Editor (v8.7+, coqidetop)</span> item.
+    <h4>
+      Coq 8.5 and Coq 8.6
+    </h4>
+    <p>
+      Coqoon uses the PIDEtop plugin to provide an editor with interactive
+      responses when used with Coq 8.5 and Coq 8.6.
+      For Windows users, a <a href="https://bitbucket.org/coqpide/pidetop/downloads/pidetop-f23e3331-8.5pl2-win32.zip">binary
       version of the plugin for Coq 8.5pl2</a> is available; for other
-      platforms, or for other versions of Coq, it should be built
+      platforms, or for other versions of Coq, the plugin should be built
       from <a href="https://bitbucket.org/coqpide/pidetop/get/PIDEtop.tar.gz">the
       latest version of the source code</a>. (When building PIDEtop, note that the trailing
       slash in the <code>COQBIN</code> variable <em>is required</em>.)
@@ -159,9 +168,9 @@
       <span class="ui">Help &rarr; Check for Updates</span>
       menu option.
     <p>
-      The most recent version of Coqoon is <strong>v0.8.2</strong>, released on
-      <strong>February 2nd, 2018</strong>; for more information, see
-      <a href="https://github.com/hannesm/Kopitiam/blob/master/CHANGES.md">the
+      The most recent version of Coqoon is <strong>v0.8.4</strong>, released on
+      <strong>December 12th, 2018</strong>; for more information, see
+      <a href="https://github.com/coqoon/coqoon/blob/master/CHANGES.md">the
       Coqoon changelog</a>.
     <h2 id="configuration">
       Configuration
@@ -293,15 +302,15 @@
       Source repository
     </h3>
     <p>
-      <a href="https://github.com/hannesm/Kopitiam">Coqoon's
+      <a href="https://github.com/coqoon/coqoon">Coqoon's
       source code</a> is hosted on <a href="https://github.com/">GitHub</a>, and
       can be checked out anonymously using the command
-      <pre class="block">git clone git://github.com/hannesm/Kopitiam.git</pre>
+      <pre class="block">git clone git://github.com/coqoon/coqoon.git</pre>
     <h3 id="development-issues">
       Issue tracker
     </h3>
     <p>
-      Report bugs, issues and problems using <a href="https://github.com/hannesm/Kopitiam/issues">the
+      Report bugs, issues and problems using <a href="https://github.com/coqoon/coqoon/issues">the
       Coqoon issue tracker</a>.
     <h2 id="contact">
       Contact
